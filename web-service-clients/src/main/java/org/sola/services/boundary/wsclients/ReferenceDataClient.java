@@ -160,6 +160,24 @@ public interface ReferenceDataClient extends AbstractWSClient {
     public static final String GET_BA_UNIT_REL_TYPES = SERVICE_NAME + "getBaUnitRelTypes";
     
     public static final String GET_LEASE_CONDITION_TYPES = SERVICE_NAME + "getLeaseConditions";
+    
+    //modified by wandechris
+    /**
+     * ReferenceData.getStateTypes - Identifier for the getStateTypes method
+     */
+    public static final String GET_STATE_TYPES = SERVICE_NAME + "getStateTypes";
+    /**
+     * ReferenceData.getLgaTypes - Identifier for the getLgaTypes method
+     */
+    public static final String GET_LGA_TYPES = SERVICE_NAME + "getLgaTypes";
+    /**
+     * ReferenceData.getCapacityTypes - Identifier for the getCapacityTypes method
+     */
+    public static final String GET_CAPACITY_TYPES = SERVICE_NAME + "getCapacityTypes";
+    /**
+     * ReferenceData.getDevelopmentStageTypes - Identifier for the getDevelopmentStageTypes method
+     */
+    public static final String GET_DEVELOPMENT_STAGE_TYPES = SERVICE_NAME + "getDevelopmentStageTypes";
 
     /**
      * Retrieves all source.source_type code values using the default locale of the client to
@@ -593,4 +611,69 @@ public interface ReferenceDataClient extends AbstractWSClient {
     List<LeaseConditionTO> getLeaseConditions() throws WebServiceClientException;
     
     List<LeaseConditionTO> getLeaseConditions(String lang) throws WebServiceClientException;
+    
+    //modified by wandechris
+     /**
+     * Retrieves all party.state_type code values using the default locale of the
+     * client to localize the display values.
+     *
+     * @throws WebServiceClientException
+     */
+    List<StateTypeTO> getStateTypes() throws WebServiceClientException;
+
+    /**
+     * Retrieves all party.state_type code values.
+     *
+     * @param languageCode The language code to use for localization of display values.
+     * @throws WebServiceClientException
+     */
+    List<StateTypeTO> getStateTypes(String lang) throws WebServiceClientException;
+    
+     /**
+     * Retrieves all party.lga_type code values using the default locale of the
+     * client to localize the display values.
+     *
+     * @throws WebServiceClientException
+     */
+    List<LgaTypeTO> getLgaTypes() throws WebServiceClientException;
+
+    /**
+     * Retrieves all party.lga_type code values.
+     *
+     * @param languageCode The language code to use for localization of display values.
+     * @throws WebServiceClientException
+     */
+    List<LgaTypeTO> getLgaTypes(String lang) throws WebServiceClientException;
+    
+     /**
+     * Retrieves all application.capacity_type code values using the default locale of the
+     * client to localize the display values.
+     *
+     * @throws WebServiceClientException
+     */
+    List<CapacityTypeTO> getCapacityTypes() throws WebServiceClientException;
+
+    /**
+     * Retrieves all application.capacity_type code values.
+     *
+     * @param languageCode The language code to use for localization of display values.
+     * @throws WebServiceClientException
+     */
+    List<CapacityTypeTO> getCapacityTypes(String lang) throws WebServiceClientException;
+    
+     /**
+     * Retrieves all application.development_stage_type code values using the default locale of the
+     * client to localize the display values.
+     *
+     * @throws WebServiceClientException
+     */
+    List<DevelopmentStageTypeTO> getDevelopmentStageTypes() throws WebServiceClientException;
+
+    /**
+     * Retrieves all application.development_stage_type code values.
+     *
+     * @param languageCode The language code to use for localization of display values.
+     * @throws WebServiceClientException
+     */
+    List<DevelopmentStageTypeTO> getDevelopmentStageTypes(String lang) throws WebServiceClientException;
 }

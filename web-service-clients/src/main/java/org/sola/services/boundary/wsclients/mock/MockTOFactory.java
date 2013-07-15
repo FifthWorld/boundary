@@ -489,6 +489,70 @@ public class MockTOFactory {
         return result;
     }
 
+    /**
+     * Creates a default list of state types <p> SQL query to generate list
+     * from DB: </p>
+     * <pre>
+     * select 'result.add(createCode(StateTypeTO.class, "' || code || '", "' || display_value || '"));'
+     * from party.state_type
+     * </pre>
+     */
+    public static List<StateTypeTO> createStateTypes() {
+        List<StateTypeTO> result = new ArrayList<StateTypeTO>();
+        result.add(createCode(StateTypeTO.class, "ondo", "Ondo"));
+        result.add(createCode(StateTypeTO.class, "osun", "Osun"));
+        result.add(createCode(StateTypeTO.class, "oyo", "Oyo"));
+        return result;
+    }
+
+    /**
+     * Creates a default list of lga types <p> SQL query to generate list
+     * from DB: </p>
+     * <pre>
+     * select 'result.add(createCode(LgaTypeTO.class, "' || code || '", "' || display_value || '"));'
+     * from party.lga_type
+     * </pre>
+     */
+    public static List<LgaTypeTO> createLgaTypes() {
+        List<LgaTypeTO> result = new ArrayList<LgaTypeTO>();
+        result.add(createCode(LgaTypeTO.class, "akoko-north-east", "Akoko North East"));
+        result.add(createCode(LgaTypeTO.class, "ifedore", "Ifedore"));
+        result.add(createCode(LgaTypeTO.class, "owo", "Owo"));
+        return result;
+    }
+
+    /**
+     * Creates a default list of capacity types <p> SQL query to generate list
+     * from DB: </p>
+     * <pre>
+     * select 'result.add(createCode(CapacityTypeTO.class, "' || code || '", "' || display_value || '"));'
+     * from application.capacity_type
+     * </pre>
+     */
+    public static List<CapacityTypeTO> createCapacityTypes() {
+        List<CapacityTypeTO> result = new ArrayList<CapacityTypeTO>();
+        result.add(createCode(CapacityTypeTO.class, "self-built", "Self built"));
+        result.add(createCode(CapacityTypeTO.class, "purchase", "Purchase"));
+        result.add(createCode(CapacityTypeTO.class, "inheritance", "Inheritance"));
+        return result;
+    }
+
+    /**
+     * Creates a default list of development_stage types <p> SQL query to generate list
+     * from DB: </p>
+     * <pre>
+     * select 'result.add(createCode(DevelopmentStageTypeTO.class, "' || code || '", "' || display_value || '"));'
+     * from application.development_stage_type
+     * </pre>
+     */
+    public static List<DevelopmentStageTypeTO> createDevelopmentStageTypes() {
+        List<DevelopmentStageTypeTO> result = new ArrayList<DevelopmentStageTypeTO>();
+        result.add(createCode(DevelopmentStageTypeTO.class, "fenced", "Fenced"));
+        result.add(createCode(DevelopmentStageTypeTO.class, "roof", "Roof"));
+        result.add(createCode(DevelopmentStageTypeTO.class, "completed", "Completed"));
+        return result;
+    }
+
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Security TOs">
     /**

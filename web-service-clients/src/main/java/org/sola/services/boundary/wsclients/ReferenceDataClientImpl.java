@@ -636,4 +636,90 @@ public class ReferenceDataClientImpl extends AbstractWSClientImpl implements Ref
         }
         return result;
     }
+
+    //modified by wandechris
+    @Override
+    public List<CapacityTypeTO> getCapacityTypes() throws WebServiceClientException {
+        return getCapacityTypes(getLanguageCode());
+    }
+
+    @Override
+    public List<CapacityTypeTO> getCapacityTypes(String lang) throws WebServiceClientException {
+        List<CapacityTypeTO> result = null;
+        final String methodName = ReferenceDataClient.GET_CAPACITY_TYPES;
+        try {
+            beforeWebMethod(methodName, lang);
+            result = getPort().getCapacityTypes(lang);
+        } catch (Exception e) {
+            processException(methodName, e);
+
+        } finally {
+            afterWebMethod(methodName, result, lang);
+        }
+        return result;
+    }
+    
+       //modified by wandechris
+    @Override
+    public List<DevelopmentStageTypeTO> getDevelopmentStageTypes() throws WebServiceClientException {
+        return getDevelopmentStageTypes(getLanguageCode());
+    }
+
+    @Override
+    public List<DevelopmentStageTypeTO> getDevelopmentStageTypes(String lang) throws WebServiceClientException {
+        List<DevelopmentStageTypeTO> result = null;
+        final String methodName = ReferenceDataClient.GET_DEVELOPMENT_STAGE_TYPES;
+        try {
+            beforeWebMethod(methodName, lang);
+            result = getPort().getDevelopmentStageTypes(lang);
+        } catch (Exception e) {
+            processException(methodName, e);
+
+        } finally {
+            afterWebMethod(methodName, result, lang);
+        }
+        return result;
+    }
+       //modified by wandechris
+    @Override
+    public List<StateTypeTO> getStateTypes() throws WebServiceClientException {
+        return getStateTypes(getLanguageCode());
+    }
+
+    @Override
+    public List<StateTypeTO> getStateTypes(String lang) throws WebServiceClientException {
+        List<StateTypeTO> result = null;
+        final String methodName = ReferenceDataClient.GET_STATE_TYPES;
+        try {
+            beforeWebMethod(methodName, lang);
+            result = getPort().getStateTypes(lang);
+        } catch (Exception e) {
+            processException(methodName, e);
+
+        } finally {
+            afterWebMethod(methodName, result, lang);
+        }
+        return result;
+    }
+       //modified by wandechris
+    @Override
+    public List<LgaTypeTO> getLgaTypes() throws WebServiceClientException {
+        return getLgaTypes(getLanguageCode());
+    }
+
+    @Override
+    public List<LgaTypeTO> getLgaTypes(String lang) throws WebServiceClientException {
+        List<LgaTypeTO> result = null;
+        final String methodName = ReferenceDataClient.GET_LGA_TYPES;
+        try {
+            beforeWebMethod(methodName, lang);
+            result = getPort().getLgaTypes(lang);
+        } catch (Exception e) {
+            processException(methodName, e);
+
+        } finally {
+            afterWebMethod(methodName, result, lang);
+        }
+        return result;
+    }
 }

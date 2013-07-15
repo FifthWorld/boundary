@@ -609,4 +609,69 @@ public class MockReferenceDataPort implements ReferenceData {
     public List<LeaseConditionTO> getLeaseConditions(String arg0) throws SOLAAccessFault, SOLAFault, UnhandledFault {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+    
+      /**
+     * Response Key = ReferenceDataClient.GET_CAPACITY_TYPES
+     *
+     * @return default = MockTOFactory.createCapacityTypes()
+     */
+    @Override
+    public List<CapacityTypeTO> getCapacityTypes(String arg0) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        List<CapacityTypeTO> defaultResponse = MockTOFactory.createCapacityTypes();
+        try {
+            return getManager().getResponse(ReferenceDataClient.GET_CAPACITY_TYPES,
+                    List.class, defaultResponse, arg0);
+        } catch (Exception ex) {
+            processExceptionAccess(ex);
+            return null;
+        }
+    }
+      /**
+     * Response Key = ReferenceDataClient.GET_DEVELOPMENT_STAGE_TYPES
+     *
+     * @return default = MockTOFactory.createDevelopmentStageTypes()
+     */
+    @Override
+    public List<DevelopmentStageTypeTO> getDevelopmentStageTypes(String arg0) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        List<DevelopmentStageTypeTO> defaultResponse = MockTOFactory.createDevelopmentStageTypes();
+        try {
+            return getManager().getResponse(ReferenceDataClient.GET_DEVELOPMENT_STAGE_TYPES,
+                    List.class, defaultResponse, arg0);
+        } catch (Exception ex) {
+            processExceptionAccess(ex);
+            return null;
+        }
+    }
+      /**
+     * Response Key = ReferenceDataClient.GET_STATE_TYPES
+     *
+     * @return default = MockTOFactory.createStateTypes()
+     */
+    @Override
+    public List<StateTypeTO> getStateTypes(String arg0) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        List<StateTypeTO> defaultResponse = MockTOFactory.createStateTypes();
+        try {
+            return getManager().getResponse(ReferenceDataClient.GET_STATE_TYPES,
+                    List.class, defaultResponse, arg0);
+        } catch (Exception ex) {
+            processExceptionAccess(ex);
+            return null;
+        }
+    }
+      /**
+     * Response Key = ReferenceDataClient.GET_LGA_TYPES
+     *
+     * @return default = MockTOFactory.createLgaTypes()
+     */
+    @Override
+    public List<LgaTypeTO> getLgaTypes(String arg0) throws SOLAAccessFault, SOLAFault, UnhandledFault {
+        List<LgaTypeTO> defaultResponse = MockTOFactory.createLgaTypes();
+        try {
+            return getManager().getResponse(ReferenceDataClient.GET_LGA_TYPES,
+                    List.class, defaultResponse, arg0);
+        } catch (Exception ex) {
+            processExceptionAccess(ex);
+            return null;
+        }
+    }
 }
