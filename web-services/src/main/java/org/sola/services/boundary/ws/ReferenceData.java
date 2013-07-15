@@ -57,20 +57,10 @@ import org.sola.services.ejb.administrative.repository.entities.MortgageType;
 import org.sola.services.ejb.administrative.repository.entities.RrrGroupType;
 import org.sola.services.ejb.administrative.repository.entities.RrrType;
 import org.sola.services.ejb.administrative.repository.entities.SourceBaUnitRelationType;
-import org.sola.services.ejb.application.repository.entities.ApplicationActionType;
-import org.sola.services.ejb.application.repository.entities.ApplicationStatusType;
-import org.sola.services.ejb.application.repository.entities.RequestCategoryType;
-import org.sola.services.ejb.application.repository.entities.RequestType;
-import org.sola.services.ejb.application.repository.entities.TypeAction;
-import org.sola.services.ejb.application.repository.entities.ServiceActionType;
-import org.sola.services.ejb.application.repository.entities.ServiceStatusType;
+import org.sola.services.ejb.application.repository.entities.*;
 import org.sola.services.ejb.cadastre.businesslogic.CadastreEJBLocal;
 import org.sola.services.ejb.cadastre.repository.entities.CadastreObjectType;
-import org.sola.services.ejb.party.repository.entities.CommunicationType;
-import org.sola.services.ejb.party.repository.entities.GenderType;
-import org.sola.services.ejb.party.repository.entities.IdType;
-import org.sola.services.ejb.party.repository.entities.PartyRoleType;
-import org.sola.services.ejb.party.repository.entities.PartyType;
+import org.sola.services.ejb.party.repository.entities.*;
 import org.sola.services.ejb.source.businesslogic.SourceEJBLocal;
 import org.sola.services.ejb.source.repository.entities.AvailabilityStatus;
 import org.sola.services.ejb.source.repository.entities.PresentationFormType;
@@ -911,6 +901,119 @@ public class ReferenceData extends AbstractWebService {
 
         return (List<BaUnitRelTypeTO>) result[0];
     }
+    
+    //modified by wandechris
+     /**
+     * See {@linkplain org.sola.services.ejb.party.businesslogic.PartyEJB#getStateTypes(java.lang.String)
+     * PartyEJB.getStateTypes}
+     *
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "GetStateTypes")
+    public List<StateTypeTO> GetStateTypes(String languageCode)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final String languageCodeTmp = languageCode;
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        partyEJB.getStateTypes(languageCodeTmp),
+                        StateTypeTO.class);
+            }
+        });
+
+        return (List<StateTypeTO>) result[0];
+    }
+    
+     /**
+     * See {@linkplain org.sola.services.ejb.party.businesslogic.PartyEJB#getLgaTypes(java.lang.String)
+     * PartyEJB.getLgaTypes}
+     *
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "GetLgaTypes")
+    public List<LgaTypeTO> GetLgaTypes(String languageCode)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final String languageCodeTmp = languageCode;
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        partyEJB.getLgaTypes(languageCodeTmp),
+                        LgaTypeTO.class);
+            }
+        });
+
+        return (List<LgaTypeTO>) result[0];
+    }
+    
+     /**
+     * See {@linkplain org.sola.services.ejb.party.businesslogic.ApplicationEJB#getCapacityTypes(java.lang.String)
+     * PartyEJB.getCapacityTypes}
+     *
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "GetCapacityTypes")
+    public List<CapacityTypeTO> GetCapacityTypes(String languageCode)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final String languageCodeTmp = languageCode;
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        applicationEJB.getCapacityTypes(languageCodeTmp),
+                        CapacityTypeTO.class);
+            }
+        });
+
+        return (List<CapacityTypeTO>) result[0];
+    }
+    
+     /**
+     * See {@linkplain org.sola.services.ejb.party.businesslogic.ApplicationEJB#getCapacityTypes(java.lang.String)
+     * PartyEJB.getCapacityTypes}
+     *
+     * @throws SOLAFault
+     * @throws UnhandledFault
+     * @throws SOLAAccessFault
+     */
+    @WebMethod(operationName = "GetDevelopmentStageTypes")
+    public List<DevelopmentStageTypeTO> GetDevelopmentStageTypes(String languageCode)
+            throws SOLAFault, UnhandledFault, SOLAAccessFault {
+
+        final String languageCodeTmp = languageCode;
+        final Object[] result = {null};
+
+        runGeneralQuery(wsContext, new Runnable() {
+
+            @Override
+            public void run() {
+                result[0] = GenericTranslator.toTOList(
+                        applicationEJB.getDevelopmentStageTypes(languageCodeTmp),
+                        DevelopmentStageTypeTO.class);
+            }
+        });
+
+        return (List<DevelopmentStageTypeTO>) result[0];
+    }
 
     /**
      * Supports saving of all SOLA Reference Data types. <p>Requires the {@linkplain RolesConstants#ADMIN_MANAGE_REFDATA}
@@ -1036,6 +1139,26 @@ public class ReferenceData extends AbstractWebService {
                     codeEntity = administrativeEJB.getCodeEntity(BaUnitRelType.class, refDataTO.getCode());
                     codeEntity = GenericTranslator.fromTO(refDataTO, BaUnitRelType.class, codeEntity);
                     administrativeEJB.saveCodeEntity(codeEntity);
+                }
+                 else if (refDataTO instanceof StateTypeTO) {
+                    codeEntity = partyEJB.getCodeEntity(StateType.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, StateType.class, codeEntity);
+                    partyEJB.saveCodeEntity(codeEntity);
+                }
+                 else if (refDataTO instanceof LgaTypeTO) {
+                    codeEntity = partyEJB.getCodeEntity(LgaType.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, LgaType.class, codeEntity);
+                    partyEJB.saveCodeEntity(codeEntity);
+                }
+                 else if (refDataTO instanceof CapacityTypeTO) {
+                    codeEntity = applicationEJB.getCodeEntity(CapacityType.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, CapacityType.class, codeEntity);
+                    applicationEJB.saveCodeEntity(codeEntity);
+                }
+                 else if (refDataTO instanceof DevelopmentStageTypeTO) {
+                    codeEntity = applicationEJB.getCodeEntity(DevelopmentStageType.class, refDataTO.getCode());
+                    codeEntity = GenericTranslator.fromTO(refDataTO, DevelopmentStageType.class, codeEntity);
+                    applicationEJB.saveCodeEntity(codeEntity);
                 }
 
                 result = GenericTranslator.toTO(codeEntity, refDataTO.getClass());
