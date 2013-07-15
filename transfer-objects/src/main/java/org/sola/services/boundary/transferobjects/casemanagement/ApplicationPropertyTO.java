@@ -52,6 +52,12 @@ public class ApplicationPropertyTO extends AbstractIdTO {
     private boolean verifiedHasOwners;
     private boolean verifiedLocation;
     private String landUseCode;
+    
+    //modified by wandechris
+    private String developmentStage;
+    private String capacityType;
+    private AddressTO propertyLocation;
+    private String propertyDuration;
 
     public ApplicationPropertyTO() {
         super();
@@ -136,4 +142,39 @@ public class ApplicationPropertyTO extends AbstractIdTO {
     public void setVerifiedLocation(boolean verifiedLocation) {
         this.verifiedLocation = verifiedLocation;
     }
+    
+    //modified by wandechris
+
+    public String getCapacityType() {
+        return capacityType;
+    }
+
+    public void setCapacityType(String capacityType) {
+        this.capacityType = capacityType;
+    }
+
+    public String getDevelopmentStage() {
+        return developmentStage;
+    }
+
+    public void setDevelopmentStage(String developmentStage) {
+        this.developmentStage = developmentStage;
+    }
+
+    public String getPropertyDuration() {
+        return propertyDuration;
+    }
+
+    public void setPropertyDuration(String propertyDuration) {
+        this.propertyDuration = propertyDuration;
+    }
+
+    public AddressTO getPropertyLocation() {
+        return propertyLocation;
+    }
+
+    public void setPropertyLocation(AddressTO propertyLocation) {
+        this.propertyLocation = propertyLocation;
+    }
+    
 }

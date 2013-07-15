@@ -53,6 +53,14 @@ public class PartyTO extends AbstractIdTO {
     private boolean rightHolder;
     //modified by wandechris
     private Date dateOfBirth;
+    private String state_of_origin;
+    private String home_town;
+    private String lga_code;
+    private AddressTO present_home_address_id;   
+    private String corporate_name;
+    private String occupation;
+    private String employer_name;
+    private AddressTO employer_address_id;
     
     private AddressTO address;
 
@@ -219,5 +227,72 @@ public class PartyTO extends AbstractIdTO {
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+    
+    //modified by wandeChris
+
+    public String getCorporate_name() {
+        return corporate_name;
+    }
+
+    public void setCorporate_name(String corporate_name) {
+        this.corporate_name = corporate_name;
+    }
+
+    public AddressTO getEmployer_address_id() {
+        return employer_address_id;
+    }
+
+    public void setEmployer_address_id(AddressTO employer_address_id) {
+        this.employer_address_id = employer_address_id;
+    }
+
+    public String getEmployer_name() {
+        return employer_name;
+    }
+
+    public void setEmployer_name(String employer_name) {
+        this.employer_name = employer_name;
+    }
+
+    public String getHome_town() {
+        return home_town;
+    }
+
+    public void setHome_town(String home_town) {
+        this.home_town = home_town;
+    }
+
+    public String getLga_code() {
+        return lga_code;
+    }
+
+    public void setLga_code(String lga_code) {
+        this.lga_code = lga_code;
+    }
+
+    public String getOccupation() {
+        return occupation;
+    }
+
+    public void setOccupation(String occupation) {
+        this.occupation = occupation;
+    }
+
+    public AddressTO getPresent_home_address_id() {
+        return present_home_address_id;
+    }
+
+    public void setPresent_home_address_id(AddressTO present_home_address_id) {
+        this.present_home_address_id = present_home_address_id;
+    }
+
+    public String getState_of_origin() {
+        return state_of_origin;
+    }
+
+    public void setState_of_origin(String state_of_origin) {
+        this.state_of_origin = state_of_origin;
+    }
+    
     
 }
