@@ -54,8 +54,8 @@ public class ApplicationPropertyTO extends AbstractIdTO {
     private String landUseCode;
     
     //modified by wandechris
-    private String developmentStage;
-    private String capacityType;
+    private String developmentStageCode;
+    private String capacityTypeCode;
     private AddressTO propertyLocation;
     private String propertyDuration;
 
@@ -145,21 +145,23 @@ public class ApplicationPropertyTO extends AbstractIdTO {
     
     //modified by wandechris
 
-    public String getCapacityType() {
-        return capacityType;
+    public String getCapacityTypeCode() {
+        return capacityTypeCode;
     }
 
-    public void setCapacityType(String capacityType) {
-        this.capacityType = capacityType;
+    public void setCapacityTypeCode(String capacityTypeCode) {
+        this.capacityTypeCode = capacityTypeCode;
     }
 
-    public String getDevelopmentStage() {
-        return developmentStage;
+    public String getDevelopmentStageCode() {
+        return developmentStageCode;
     }
 
-    public void setDevelopmentStage(String developmentStage) {
-        this.developmentStage = developmentStage;
+    public void setDevelopmentStageCode(String developmentStageCode) {
+        this.developmentStageCode = developmentStageCode;
     }
+
+    
 
     public String getPropertyDuration() {
         return propertyDuration;
