@@ -53,16 +53,18 @@ public class PartyTO extends AbstractIdTO {
     private boolean rightHolder;
     //modified by wandechris
     private Date dateOfBirth;
-    private String state_of_origin;
-    private String home_town;
+    private String state_code;
+    private String homeTown;
     private String lga_code;
-    private AddressTO present_home_address_id;   
+    //private AddressTO present_home_address_id;   
     private String corporate_name;
     private String occupation;
-    private String employer_name;
-    private AddressTO employer_address_id;
+    private String employerName;
+    //private AddressTO employer_address_id;
     
     private AddressTO address;
+    private AddressTO employerAddress;
+    private AddressTO presentAddress;
 
     public PartyTO() {
         super();
@@ -238,28 +240,20 @@ public class PartyTO extends AbstractIdTO {
         this.corporate_name = corporate_name;
     }
 
-    public AddressTO getEmployer_address_id() {
-        return employer_address_id;
+    public String getEmployerName() {
+        return employerName;
     }
 
-    public void setEmployer_address_id(AddressTO employer_address_id) {
-        this.employer_address_id = employer_address_id;
+    public void setEmployerName(String employerName) {
+        this.employerName = employerName;
     }
 
-    public String getEmployer_name() {
-        return employer_name;
+    public String getHomeTown() {
+        return homeTown;
     }
 
-    public void setEmployer_name(String employer_name) {
-        this.employer_name = employer_name;
-    }
-
-    public String getHome_town() {
-        return home_town;
-    }
-
-    public void setHome_town(String home_town) {
-        this.home_town = home_town;
+    public void setHomeTown(String homeTown) {
+        this.homeTown = homeTown;
     }
 
     public String getLga_code() {
@@ -278,21 +272,30 @@ public class PartyTO extends AbstractIdTO {
         this.occupation = occupation;
     }
 
-    public AddressTO getPresent_home_address_id() {
-        return present_home_address_id;
+   public String getState_code() {
+        return state_code;
     }
 
-    public void setPresent_home_address_id(AddressTO present_home_address_id) {
-        this.present_home_address_id = present_home_address_id;
+    public void setState_code(String state_code) {
+        this.state_code = state_code;
     }
 
-    public String getState_of_origin() {
-        return state_of_origin;
+    public AddressTO getEmployerAddress() {
+        return employerAddress;
     }
 
-    public void setState_of_origin(String state_of_origin) {
-        this.state_of_origin = state_of_origin;
+    public void setEmployerAddress(AddressTO employerAddress) {
+        this.employerAddress = employerAddress;
     }
+
+    public AddressTO getPresentAddress() {
+        return presentAddress;
+    }
+
+    public void setPresentAddress(AddressTO presentAddress) {
+        this.presentAddress = presentAddress;
+    }
+    
     
     
 }

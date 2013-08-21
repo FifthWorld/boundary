@@ -499,9 +499,7 @@ public class MockTOFactory {
      */
     public static List<StateTypeTO> createStateTypes() {
         List<StateTypeTO> result = new ArrayList<StateTypeTO>();
-        result.add(createCode(StateTypeTO.class, "ondo", "Ondo"));
-        result.add(createCode(StateTypeTO.class, "osun", "Osun"));
-        result.add(createCode(StateTypeTO.class, "oyo", "Oyo"));
+        result.add(createCode(StateTypeTO.class, "ondo", "Ondo State"));
         return result;
     }
 
